@@ -69,7 +69,7 @@ document.getElementById("formulario").addEventListener("submit", (event) => {
 
 const printData = () => {
 
-    document.getElementById("pintar") !== null ? document.getElementById("pintar").remove() : console.log(null);
+    document.getElementById("pintar") !== null ? document.getElementById("pintar").remove() : ""
 
     const ul = document.createElement("ul")
     ul.id = "pintar"
@@ -85,7 +85,7 @@ const printData = () => {
 
 document.getElementById("boton").addEventListener("click", () => {
     localStorage.clear()
-    arrayUsuarios = [] // solucion;
+    arrayUsuarios = []
 })
 
 

@@ -58,15 +58,31 @@ document.getElementById("formulario").addEventListener("submit", (event) => {
     const mensaje = document.getElementById("mensaje").value
 
     const eventSubmit = new Usuario(nombre, email, mensaje)
-
     arrayUsuarios.push(eventSubmit);
-
     const userData = JSON.stringify(arrayUsuarios)
 
     guardarDatos("userData", userData);
 
+    printData();
+
 })
 
+const printData = () => {
+
+    document.getElementById("pintar") !== null ? document.getElementById("pintar").remove() : console.log(null);
+
+    const ul = document.createElement("ul")
+    ul.id = "pintar"
+    document.getElementById("seccion").appendChild(ul)
+
+    for (let i = 0;i<arrayUsuarios.length; i++) {
+        const li = document.createElement("li")
+        document.getElementById("pintar").appendChild(li)
+        const pTxt = document.createTextNode(`${arrayUsuarios[i].name}`)
+        li.appendChild(pTxt)
+    }
+
+}
 
 document.getElementById("boton").addEventListener("click", () => {
     localStorage.clear()

@@ -69,24 +69,44 @@ document.getElementById("formulario").addEventListener("submit", (event) => {
 
 const printData = () => {
 
-    document.getElementById("pintar") !== null ? document.getElementById("pintar").remove() : ""
-
-    const ul = document.createElement("ul")
-    ul.id = "pintar"
-    document.getElementById("seccion").appendChild(ul)
-
     for (let i = 0;i<arrayUsuarios.length; i++) {
+
+        document.getElementById(`${i}`) !== null ? document.getElementById(`${i}`).remove() : ""
+
+        const div = document.createElement("div")
+        div.id = `${i}`
+        document.getElementById("seccion").appendChild(div)
+
+        const ul = document.createElement("ul")
+        ul.id = `pintar${i}`
+        document.getElementById(`${i}`).appendChild(ul)
+
         const li = document.createElement("li")
-        document.getElementById("pintar").appendChild(li)
+        document.getElementById(`pintar${i}`).appendChild(li)
         const liTxt = document.createTextNode(`Nombre: ${arrayUsuarios[i].name}, Email: ${arrayUsuarios[i].email}, Mensaje: ${arrayUsuarios[i].msg}`)
         li.appendChild(liTxt)
+
+        const botonBorrar = document.createElement("input")
+        botonBorrar.type = "button"
+        botonBorrar.id = `boton${i}`
+        botonBorrar.value = "Borrar usuario"
+        document.getElementById(`${i}`).appendChild(botonBorrar)
+
+        // document.getElementById(`boton${i}`).addEventListener(click, ()=> removeUser())
+
+        // const removeUser = () => document.getElementById(`${i}`).remove()
+        
     }
 }
+
+
 
 document.getElementById("boton").addEventListener("click", () => {
     localStorage.clear()
     arrayUsuarios = []
 })
+
+
 
 // Usa JSON.parse() y JSON.stringify() para guardar muchos datos usando la misma clave
 

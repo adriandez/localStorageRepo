@@ -88,12 +88,6 @@ document.getElementById("boton").addEventListener("click", () => {
     arrayUsuarios = []
 })
 
-
-
-
-
-
-
 // Usa JSON.parse() y JSON.stringify() para guardar muchos datos usando la misma clave
 
 

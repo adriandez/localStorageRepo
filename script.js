@@ -78,10 +78,9 @@ const printData = () => {
     for (let i = 0;i<arrayUsuarios.length; i++) {
         const li = document.createElement("li")
         document.getElementById("pintar").appendChild(li)
-        const pTxt = document.createTextNode(`${arrayUsuarios[i].name}`)
-        li.appendChild(pTxt)
+        const liTxt = document.createTextNode(`Nombre: ${arrayUsuarios[i].name}, Email: ${arrayUsuarios[i].email}, Mensaje: ${arrayUsuarios[i].msg}`)
+        li.appendChild(liTxt)
     }
-
 }
 
 document.getElementById("boton").addEventListener("click", () => {
